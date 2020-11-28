@@ -1,15 +1,27 @@
+import { Card, Container, Button } from 'react-bootstrap'
+
 const List = (props) => {
   const { repos } = props
-  if (!repos || repos.length === 0) return <p>No Repositories Loaded, Refresh or check your Network</p>
+  if (!repos || repos.length === 0)
+    return <p>No Repositories Loaded, Refresh or check your Network</p>
   return (
     <ul>
-      <h2 className='list-head'>My Public Repositories</h2>
       {repos.map((repo) => {
         return (
-          <li key={repo.id} className='list'>
-            <span className='repo-text'>{repo.name} </span>
-            <span className='repo-description'>{repo.description}</span>
-          </li>
+          <Container className='mt-3'>
+            <Card border="success" key={repo.id}>
+              <Card.Header>GitHub Repo: {repo.full_name}</Card.Header>
+              <Card.Body>
+                <Card.Title>{repo.name}</Card.Title>
+                <Card.Text>{repo.description}</Card.Text>
+                <Button variant='success' className="mt-3">
+                  <a className='text-white' href={repo.html_url}>
+                    GitHub
+                  </a>
+                </Button>
+              </Card.Body>
+            </Card>
+          </Container>
         )
       })}
     </ul>

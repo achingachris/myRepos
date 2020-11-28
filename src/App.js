@@ -1,6 +1,10 @@
+import { Container } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+
 import './App.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import List from './components/List'
 import withListLoading from './components/WithListLoading'
 
@@ -19,24 +23,19 @@ const App = () => {
       setAppState({ loading: false, repos: allRepos })
     })
   }, [setAppState])
+
   return (
-    <div className='App'>
-      <div className='container'>
-        <h1>My Repositories</h1>
-      </div>
-      <div className='repo-container'>
-        <ListLoading isLoading={appState.loading} repos={appState.repos} />
-      </div>
-      <footer>
-        <div className='footer'>
-          Built{' '}
-          <span role='img' aria-label='love'>
-            💚
-          </span>{' '}
-          with by Chris Achinga
-        </div>
-      </footer>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Container>
+          <div className='repo-container'>
+            <ListLoading isLoading={appState.loading} repos={appState.repos} />
+          </div>
+        </Container>
+      </main>
+      <Footer />
+    </>
   )
 }
 

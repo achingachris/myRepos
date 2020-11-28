@@ -10,8 +10,8 @@ const List = (props) => {
         return (
           <Container className='mt-3'>
             <Card border="success" key={repo.id}>
-              <Card.Header>GitHub Repo: {repo.full_name}</Card.Header>
-              <Card.Body>
+              <Card.Header className='cardHeaderText'>GitHub Repo: {repo.full_name}</Card.Header>
+              <Card.Body className='cardText'>
                 <Card.Title>{repo.name}</Card.Title>
                 <Card.Text>{repo.description}</Card.Text>
                 <Button variant='success' className="mt-3">

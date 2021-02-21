@@ -1,4 +1,4 @@
-# My GitHub Repos
+# My GitHub Repos - Repo
 
 ![image](screenshort.png)
 
